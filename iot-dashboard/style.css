@@ -1,0 +1,343 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('imagem/reservatório.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+h1 {
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #0ff,
+        0 0 80px #0ff,
+        0 0 90px #0ff,
+        0 0 100px #0ff,
+        0 0 150px #0ff;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('imagem/reservatório.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 80;
+    padding: 40;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+h1 {
+    color: #fff;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #0ff,
+        0 0 80px #0ff,
+        0 0 90px #0ff,
+        0 0 100px #0ff,
+        0 0 150px #0ff;
+}
+.container {
+    position: relative;
+    width: 400px;
+    max-width: 400px;
+    margin: 10px auto 10px auto;
+    height: auto;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.dashboard {
+    display: flex;
+    gap: 40px;
+    margin-top: 0;
+    /* Removed absolute positioning to prevent overlap */
+    /* position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%); */
+    width: 500px;
+    justify-content: space-around;
+}
+.section {
+    background: rgb(224, 218, 218);
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00bfff, 0 0 30px #00bfff inset;
+    padding: 40px 40px;
+    width: 800px;
+    text-align: center;
+    border: 2px solid #0084ff;
+    backdrop-filter: brightness(1.1);
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    color: #007acc;
+}
+
+.value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.label {
+    font-size: 1em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.progress-bar {
+    width: 30px;
+    height: 150px;
+    background-color: #d4dde9;
+    border-radius: 10px;
+    margin: 10px auto 0 auto;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.progress-fill {
+    width: 100%;
+    background: linear-gradient(180deg, #00bfff, #1e90ff);
+    border-radius: 10px 10px 0 0;
+    height: 0%;
+    transition: height 0.5s ease-in-out;
+    box-shadow: 0 0 8px #00bfff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.progress-metric {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -20px;
+    font-weight: bold;
+    color: #007acc;
+    font-size: 1em;
+}
+
+/* Estilo para o botão de gerar relatório */
+.btn-relatorio {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #007acc;
+    transition: background-color 0.3s ease;
+}
+.btn-relatorio:hover {
+    background-color: #005fa3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 90vw;
+        height: auto;
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .dashboard {
+        flex-direction: column;
+        position: static;
+        width: 100%;
+        transform: none;
+        gap: 20px;
+    }
+    .cards-container {
+        width: 100%;
+        gap: 20px;
+    }
+    .charts-container {
+        width: 100%;
+        gap: 20px;
+    }
+    .section {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+/* WiFi icon container */
+.wifi-icon {
+    margin: 10px auto 20px auto;
+    width: 40px;
+    height: 40px;
+}
+
+/* WiFi icon colors */
+.wifi-connected {
+    color: #28a745; /* green */
+}
+
+.wifi-disconnected {
+    color: #ff7f00; /* orange */
+}
+
+.chart-section {
+    margin: 0;
+    padding: 0;
+}
+.dashboard {
+    display: flex;
+    gap: 40px;
+    margin-top: 0;
+    /* Removed absolute positioning to prevent overlap */
+    /* position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%); */
+    width: 600px;
+    justify-content: space-around;
+}
+.section {
+    background: rgb(224, 218, 218);
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00bfff, 0 0 30px #00bfff inset;
+    padding: 40px 50px;
+    width: 550px;
+    text-align: center;
+    border: 2px solid #0084ff;
+    backdrop-filter: brightness(1.1);
+}
+.section h2 {
+    margin-bottom: 20px;
+    color: #007acc;
+}
+.value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+}
+.label {
+    font-size: 1em;
+    color: #666;
+    margin-top: 5px;
+}
+.progress-bar {
+    width: 30px;
+    height: 150px;
+    background-color: #d4dde9;
+    border-radius: 10px;
+    margin: 10px auto 0 auto;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    position: relative;
+}
+.progress-fill {
+    width: 100%;
+    background: linear-gradient(180deg, #00bfff, #1e90ff);
+    border-radius: 10px 10px 0 0;
+    height: 0%;
+    transition: height 0.5s ease-in-out;
+    box-shadow: 0 0 8px #00bfff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.progress-metric {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -20px;
+    font-weight: bold;
+    color: #007acc;
+    font-size: 1em;
+}
+
+/* Estilo para o botão de gerar relatório */
+.btn-relatorio {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #007acc;
+    transition: background-color 0.3s ease;
+}
+.btn-relatorio:hover {
+    background-color: #005fa3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 90vw;
+        height: auto;
+        margin-top: 20px;
+    }
+    .dashboard {
+        flex-direction: column;
+        position: static;
+        width: 100%;
+        transform: none;
+        gap: 20px;
+    }
+    .section {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+/* WiFi icon container */
+.wifi-icon {
+    margin: 10px auto 20px auto;
+    width: 40px;
+    height: 40px;
+}
+
+/* WiFi icon colors */
+.wifi-connected {
+    color: #28a745; /* green */
+}
+
+.wifi-disconnected {
+    color: #ff7f00; /* orange */
+}
