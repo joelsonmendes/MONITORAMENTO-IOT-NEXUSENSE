@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Painel IoT - Monitoramento de Água</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chart-styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <img src="imagem/iot.jpg" alt="iot" style="height: 50px;" />
+        <h1>Painel IoT - Monitoramento - NexuSense</h1>
+    </div>
+    <div class="container">
+        <button id="btn-gerar-relatorio" class="btn-relatorio">Gerar Relatório de Consumo</button>
+        <div class="dashboard">
+            <div class="section" id="reservatorio">
+                <h2>Reservatório</h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Water_drop_icon.svg/120px-Water_drop_icon.svg.png" alt="" style="width: 120px; margin-bottom: 20px;" />
+                <!-- WiFi Icon for connection status -->
+                <div class="wifi-icon wifi-disconnected" id="wifi-reservatorio" title="Status da conexão do sensor">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 18c.828 0 1.5.672 1.5 1.5S12.828 21 12 21s-1.5-.672-1.5-1.5S11.172 18 12 18zm0-2c-2.485 0-4.5 1.567-4.5 3.5h9c0-1.933-2.015-3.5-4.5-3.5zm0-2c3.314 0 6 2.239 6 5h-2c0-1.654-1.346-3-3-3s-3 1.346-3 3H6c0-2.761 2.686-5 6-5zm0-2c-4.418 0-8 3.134-8 7h2c0-2.761 2.686-5 6-5s6 2.239 6 5h2c0-3.866-3.582-7-8-7z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="value" id="volume-reservatorio">-- L</div>
+                    <div class="label">Volume de Água</div>
+                </div>
+            <div>
+                <div class="label">Percentual</div>
+                <div class="value" id="percentual-reservatorio">-- %</div>
+                <div class="progress-bar">
+                    <div class="progress-metric" id="metric-reservatorio">--%</div>
+                    <div class="progress-fill" id="progress-reservatorio"></div>
+                </div>
+            </div>
+            </div>
+            <div class="section" id="cisterna">
+                <h2>Cisterna</h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Water_drop_icon.svg/120px-Water_drop_icon.svg.png" alt="" style="width: 120px; margin-bottom: 20px;" />
+                <!-- WiFi Icon for connection status -->
+                <div class="wifi-icon wifi-disconnected" id="wifi-cisterna" title="Status da conexão do sensor">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 18c.828 0 1.5.672 1.5 1.5S12.828 21 12 21s-1.5-.672-1.5-1.5S11.172 18 12 18zm0-2c-2.485 0-4.5 1.567-4.5 3.5h9c0-1.933-2.015-3.5-4.5-3.5zm0-2c3.314 0 6 2.239 6 5h-2c0-1.654-1.346-3-3-3s-3 1.346-3 3H6c0-2.761 2.686-5 6-5zm0-2c-4.418 0-8 3.134-8 7h2c0-2.761 2.686-5 6-5s6 2.239 6 5h2c0-3.866-3.582-7-8-7z"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="value" id="volume-cisterna">-- L</div>
+                    <div class="label">Volume de Água</div>
+                </div>
+            <div>
+                <div class="label">Percentual</div>
+                <div class="value" id="percentual-cisterna">-- %</div>
+                <div class="progress-bar">
+                    <div class="progress-metric" id="metric-cisterna">--%</div>
+                    <div class="progress-fill" id="progress-cisterna"></div>
+                </div>
+                </div>
+            </div>
+    </div>
+    <!-- New section for charts -->
+    <div class="charts-container" style="display:none;">
+        <button id="close-chart" class="close-chart" title="Fechar gráfico">&times;</button>
+        <div class="chart-section">
+            <canvas id="chart-reservatorio"></canvas>
+        </div>
+        <div class="chart-section">
+            <canvas id="chart-cisterna"></canvas>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
