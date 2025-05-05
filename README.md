@@ -1,6 +1,6 @@
-# Painel IoT - IST-SENAI
+# Painel IoT - NEXUSENSE
 
-Este projeto é um painel de monitoramento IoT para reservatório e cisterna, desenvolvido para o IST-SENAI. Ele exibe volumes de água e percentuais em tempo real com uma interface visual amigável.
+Este projeto é um painel de monitoramento IoT para reservatório e cisterna, desenvolvido para atender Condomínios. Ele exibe volumes de água e percentuais em tempo real com uma interface visual amigável.
 
 ## Como usar
 
@@ -14,8 +14,6 @@ Este projeto é um painel de monitoramento IoT para reservatório e cisterna, de
 
 ## Repositório
 
-Este projeto está hospedado no GitHub: https://github.com/Nexusenseiot/Painel-IoT-ISTSENAI.git
+Este projeto está hospedado no GitHub: https://github.com/joelsonmendes/MONITORAMENTO-IOT-NEXUSENSE.git
 
-## Licença
 
-Este projeto está aberto para uso e modificação conforme sua necessidade.
