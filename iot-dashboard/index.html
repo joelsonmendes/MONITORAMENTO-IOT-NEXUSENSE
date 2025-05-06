@@ -6,12 +6,25 @@
     <title>Painel IoT - Monitoramento de Água</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="chart-styles.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#007bff" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registrado com sucesso:', registration.scope);
+                }, function(err) {
+                    console.log('Falha ao registrar o ServiceWorker:', err);
+                });
+            });
+        }
+    </script>
 </head>
 <body>
     <div style="display: flex; align-items: center; gap: 15px;">
-        <img src="imagem/iot.jpg" alt="iot" style="height: 50px;" />
+        <img src="/imagem/iot.jpg" alt="iot" style="height: 50px;" />
         <h1>Painel IoT - Monitoramento - NexuSense</h1>
     </div>
     <div class="container">
@@ -65,16 +78,13 @@
     <!-- New section for charts -->
     <div class="charts-container" style="display:none;">
         <button id="close-chart" class="close-chart" title="Fechar gráfico">&times;</button>
-        <div class="chart-section">
-            <canvas id="chart-reservatorio"></canvas>
-        </div>
-        <div class="chart-section">
-            <canvas id="chart-cisterna"></canvas>
-        </div>
+        <div class="chart-section" id="chart-reservatorio"></div>
+        <div class="chart-section" id="chart-cisterna"></div>
     </div>
     </div>
 
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
